@@ -5,10 +5,6 @@ import CounterStore from '../stores/counter'
 import CounterAction from '../actions/counter'
 
 class Counter extends React.Component{
-    constructor(){
-        super();
-        this.state = {count: CounterStore.getNum()};
-    }
     handleButtonClick(e){
         //this.counterStore.increment();
         CounterAction.increment();
