@@ -9,12 +9,6 @@ class Counter extends React.Component{
         //this.counterStore.increment();
         CounterAction.increment();
     }
-    componentWillMount(){
-        CounterStore.on("change", () => {
-                this.setState({count: CounterStore.getNum()})
-                console.log("change event received");
-            });
-    }
     render(){
         console.log("rerendered");
         return (<div><Number num={this.props.count} /><Button onClick={this.props.handleButtonClick} /></div>);
