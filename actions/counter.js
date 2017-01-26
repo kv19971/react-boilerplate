@@ -1,8 +1,8 @@
-import dispatcher from '../dispatcher'
+import store from '../mainstore'
 
 const CounterAction = {
     increment: function(){
-        dispatcher.dispatch("inc");
+        store.dispatch({type: "inc"});
     }
 }
 

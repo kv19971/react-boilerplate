@@ -1,7 +1,7 @@
 import React from 'react'
 import Number from '../components/number'
 import Button from '../components/button'
-import CounterStore from '../stores/counter'
+import { connect } from 'react-redux';
 import CounterAction from '../actions/counter'
 
 class Counter extends React.Component{
@@ -17,7 +17,7 @@ class Counter extends React.Component{
     }
     render(){
         console.log("rerendered");
-        return (<div><Number num={this.props.count} /><Button onClick={this.handleButtonClick} /></div>);
+        return (<div><Number num={this.props.count} /><Button onClick={this.props.handleButtonClick} /></div>);
     }
 }
 function mapStateToProps(state){
@@ -25,6 +25,15 @@ function mapStateToProps(state){
         count: state.counter.num
     };
 }
+function mapDispatchToProps(dispatch){
+    return {
+        handleButtonClick: function (e){
+            //this.counterStore.increment();
+            CounterAction.increment();
+        }
+    }
+}
 
-export default connect(mapStateToProps)(Counter)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter)
 
