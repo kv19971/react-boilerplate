@@ -17,8 +17,14 @@ class Counter extends React.Component{
     }
     render(){
         console.log("rerendered");
-        return (<div><Number num={this.state.count} /><Button onClick={this.handleButtonClick} /></div>);
+        return (<div><Number num={this.props.count} /><Button onClick={this.handleButtonClick} /></div>);
     }
 }
+function mapStateToProps(state){
+    return {
+        count: state.counter.num
+    };
+}
 
-export default Counter
+export default connect(mapStateToProps)(Counter)
+
