@@ -2,7 +2,7 @@ import store from '../mainstore'
 
 const CounterAction = {
     increment: function(){
-        store.dispatch({type: "inc"});
+        store.dispatch({type: "INC"});
     }
 }
 
