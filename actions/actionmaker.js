@@ -1,5 +1,6 @@
 import Axios from 'axios'
 import store from '../mainstore'
+import _ from 'lodash'
 
 function makeAction(type, status, payload){
     return {
@@ -18,9 +19,10 @@ function dispatchAsyncAction(data, req){
     // make async call 
     //      if success then respond with success and payload 
     //      if error then respond with error and error message (optional)
-    let action = Object.create({}, data, {status: "loading"});
+    let action = _.cloneDeep(data);
+    action.status = "l";
     dispatchAction(action);
-
+    console.log("action dispatched");
     Axios({
         method: req.method,
         url: req.url,
@@ -28,18 +30,17 @@ function dispatchAsyncAction(data, req){
     }).then(
         (res) => {
             action.status = "success";
-            action.payload = res;
-
+            action.payload = res.data;
+            console.log("action successful");
             dispatchAction(action);
-        }
-    ).catch(
+        }, 
         (error) => {
             action.status = "error";
             action.payload = error;
-
+            console.log("action failed");
             dispatchAction(action);
         }
     );
 }
 
-export {makeAction, dispatchAction, dispatchAsyncAction}
+export {makeAction, dispatchAction, dispatchAsyncAction};
