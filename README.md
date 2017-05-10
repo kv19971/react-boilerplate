@@ -1,6 +1,6 @@
 # react-boilerplate
 
-##Listen up hoes
+##Listen up
 
 Requirements: 
 npm and nodejs (duh)
