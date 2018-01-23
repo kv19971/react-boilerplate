@@ -1,9 +1,9 @@
-# react-boilerplate
+# react-boilerplate - not working atm 
 
-##Listen up
+Still having issues with babel 
 
 Requirements: 
-npm and nodejs (duh)
+npm and nodejs 
 
 Steps to install and run: 
 
